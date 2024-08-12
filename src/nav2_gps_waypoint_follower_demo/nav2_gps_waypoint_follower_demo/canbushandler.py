@@ -11,7 +11,7 @@ class CANBusHandler(Node):
         super().__init__('canbus_handler')
         self.subscription = self.create_subscription(
             Twist,
-            'cmd_vel',
+            'cmd_vel_nav',
             self.listener_callback,
             10)
         self.subscription  # prevent unused variable warning

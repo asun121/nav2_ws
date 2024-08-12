@@ -9,7 +9,7 @@ from rclpy.node import Node
 from sensor_msgs.msg import NavSatFix
 from sensor_msgs.msg import Imu
 
-GPS_PORT = '/dev/ttyACM0'
+GPS_PORT = '/dev/serial/by-id/usb-Emlid_ReachRS3_8243ABB34D7B2976-if02'
 
 
 
@@ -47,14 +47,14 @@ class GPS(Node):
         super().__init__('gps')
         self.get_logger().info('Launching GPS Module')
 
-        self.publisher_gps = self.create_publisher(NavSatFix, '/gps', 10)
-        self.publisher_imu = self.create_publisher(Imu, '/imu', 10)
+        self.publisher_gps = self.create_publisher(NavSatFix, 'gps/fix', 10)
+        self.publisher_imu = self.create_publisher(Imu, 'imu', 10)
 
-        try:
-            self.gps_port = serial.Serial('/dev/ttyACM0', 38400, timeout=1)
-        except:
-            self.gps_port = serial.Serial('/dev/ttyACM1', 38400, timeout=1)
-
+        # try:
+        #     self.gps_port = serial.Serial('/dev/ttyACM0', 38400, timeout=1)
+        # except:
+        #     self.gps_port = serial.Serial('/dev/ttyACM1', 38400, timeout=1)
+        self.gps_port = serial.Serial(GPS_PORT, 38400, timeout=1)
         self.latitude = None
         self.longitude = None
         self.heading = 0.0
@@ -85,6 +85,13 @@ class GPS(Node):
     def timer_callback(self):
         gps_msg = NavSatFix()
         imu_msg = Imu()
+
+        gps_msg.header.frame_id = 'gps'
+        gps_msg.header.stamp = self.get_clock().now().to_msg()
+
+        imu_msg.header.frame_id = 'imu'
+        imu_msg.header.stamp = self.get_clock().now().to_msg()
+   
 
         self.get_gps()
         gp = [self.latitude, self.longitude, self.heading]
