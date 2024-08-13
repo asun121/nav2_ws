@@ -102,11 +102,11 @@ def generate_launch_description():
         name='amiga_odometry'
     )
 
-    canbus_cmd = Node(
-        package='nav2_gps_waypoint_follower_demo',
-        executable='canbus_handler',
-        name='canbus_handler'
-    )
+    # canbus_cmd = Node(
+    #     package='nav2_gps_waypoint_follower_demo',
+    #     executable='canbus_handler',
+    #     name='canbus_handler'
+    # )
     # Create the launch description and populate
     ld = LaunchDescription()
 
@@ -129,5 +129,5 @@ def generate_launch_description():
     # Bot Nodes
     ld.add_action(gps_cmd)
     ld.add_action(odom_cmd)
-    ld.add_action(canbus_cmd)
+   # ld.add_action(canbus_cmd)
     return ld

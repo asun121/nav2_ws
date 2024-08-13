@@ -19,10 +19,11 @@ class CANBusHandler(Node):
         self.ser = serial.Serial('/dev/serial/by-id/usb-Adafruit_Industries_LLC_Feather_M4_CAN_9378F5F848364C53202020540C2A0DFF-if00', 115200)
 
     def listener_callback(self, msg):
-        self.get_logger().info('Twist: "%s"' % msg)
         #twist_str = str(msg.linear.x) + "," + str(msg.angular.z)
         #self.ser.write(twist_str.encode('ascii'))
-        self.ser.write((str(msg.linear.x) + "," + str(msg.angular.z)).encode('utf-8'))
+        twi = (str(msg.linear.x) + "," + str(msg.angular.z)).encode()
+        self.ser.write(twi)
+        self.get_logger().info('Sending: "%s"' % twi)
 
 def main(args=None):
     rclpy.init(args=args)

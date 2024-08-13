@@ -3,6 +3,7 @@ from rclpy.node import Node
 
 from nav_msgs.msg import Odometry
 import serial
+from geometry_msgs.msg import Twist
 
 class OdometryPublisher(Node):
 
@@ -13,7 +14,20 @@ class OdometryPublisher(Node):
         self.timer = self.create_timer(timer_period, self.timer_callback)
         self.i = 0
         self.ser = serial.Serial('/dev/serial/by-id/usb-Adafruit_Industries_LLC_Feather_M4_CAN_F6FF0DE648364C53202020542C1B0DFF-if00')
-
+        self.subscription = self.create_subscription(
+            Twist,
+            'cmd_vel_nav',
+            self.listener_callback,
+            10)
+        self.subscription  # prevent unused variable warning
+    
+    def listener_callback(self, msg):
+        #twist_str = str(msg.linear.x) + "," + str(msg.angular.z)
+        #self.ser.write(twist_str.encode('ascii'))
+        twi = (str(msg.linear.x) + "," + str(msg.angular.z)).encode()
+        self.ser.write(twi)
+        self.get_logger().info('Sending: "%s"' % twi)
+        
     def timer_callback(self):
         latest_line = None
 
