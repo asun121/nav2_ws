@@ -1,4 +1,4 @@
-import nav2_gps_waypoint_follower_demo.utils.gps_utils as gps_utils
+import amiga_nav2.utils.gps_utils as gps_utils
 
 import serial
 import pynmea2

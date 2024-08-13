@@ -12,7 +12,7 @@
     <visual>
       <origin xyz="0 0 0.6" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://nav2_gps_waypoint_follower_demo/meshes/amiga_body.stl" scale="0.001 0.001 0.001" />
+        <mesh filename="package://amiga_nav2/meshes/amiga_body.stl" scale="0.001 0.001 0.001" />
       </geometry>
       <material name="white"/>
     </visual>
@@ -26,7 +26,7 @@
   <link name="front_left_wheel">
     <visual>
       <geometry>
-        <mesh filename="package://nav2_gps_waypoint_follower_demo/meshes/amiga_wheel.stl" scale="0.001 0.001 0.001" />
+        <mesh filename="package://amiga_nav2/meshes/amiga_wheel.stl" scale="0.001 0.001 0.001" />
       </geometry>
       <material name="dark_black"/>
 
@@ -41,7 +41,7 @@
   <link name="front_right_wheel">
     <visual>
       <geometry>
-        <mesh filename="package://nav2_gps_waypoint_follower_demo/meshes/amiga_wheel.stl" scale="0.001 0.001 0.001" />
+        <mesh filename="package://amiga_nav2/meshes/amiga_wheel.stl" scale="0.001 0.001 0.001" />
       </geometry>
       <material name="dark_black"/>
     </visual>
@@ -54,7 +54,7 @@
   <link name="rear_left_wheel">
     <visual>
       <geometry>
-        <mesh filename="package://nav2_gps_waypoint_follower_demo/meshes/amiga_wheel.stl" scale="0.001 0.001 0.001" />
+        <mesh filename="package://amiga_nav2/meshes/amiga_wheel.stl" scale="0.001 0.001 0.001" />
       </geometry>
       <material name="dark_black"/>
     </visual>
@@ -67,7 +67,7 @@
   <link name="rear_right_wheel">
     <visual>
       <geometry>
-        <mesh filename="package://nav2_gps_waypoint_follower_demo/meshes/amiga_wheel.stl" scale="0.001 0.001 0.001" />
+        <mesh filename="package://amiga_nav2/meshes/amiga_wheel.stl" scale="0.001 0.001 0.001" />
       </geometry>
       <material name="dark_black"/>
     </visual>

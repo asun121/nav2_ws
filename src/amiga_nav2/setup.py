@@ -2,7 +2,7 @@ from setuptools import find_packages, setup
 import os
 from glob import glob
 
-package_name = 'nav2_gps_waypoint_follower_demo'
+package_name = 'amiga_nav2'
 
 setup(
     name=package_name,
@@ -28,12 +28,12 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'logged_waypoint_follower = nav2_gps_waypoint_follower_demo.logged_waypoint_follower:main',
-            'interactive_waypoint_follower = nav2_gps_waypoint_follower_demo.interactive_waypoint_follower:main',
-            'gps_waypoint_logger = nav2_gps_waypoint_follower_demo.gps_waypoint_logger:main',
-            'amiga_odometry = nav2_gps_waypoint_follower_demo.amiga_odometry:main',
-            'gps = nav2_gps_waypoint_follower_demo.nmea_gps:main',
-            'canbus_handler = nav2_gps_waypoint_follower_demo.canbushandler:main'
+            'logged_waypoint_follower = amiga_nav2.logged_waypoint_follower:main',
+            'interactive_waypoint_follower = amiga_nav2.interactive_waypoint_follower:main',
+            'gps_waypoint_logger = amiga_nav2.gps_waypoint_logger:main',
+            'amiga_odometry = amiga_nav2.amiga_odometry:main',
+            'gps = amiga_nav2.nmea_gps:main',
+            'canbus_handler = amiga_nav2.canbushandler:main'
         ],
     },
 )

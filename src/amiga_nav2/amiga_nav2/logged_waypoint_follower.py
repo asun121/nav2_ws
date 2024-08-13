@@ -7,7 +7,7 @@ import sys
 import time
 from robot_localization.srv import FromLL
 from rclpy.node import Node
-from nav2_gps_waypoint_follower_demo.utils.gps_utils import latLonYaw2Geopose
+from amiga_nav2.utils.gps_utils import latLonYaw2Geopose
 from nav2_msgs.action import FollowWaypoints
 from geometry_msgs.msg import PoseStamped
 

@@ -17,10 +17,10 @@ from launch_ros.substitutions import FindPackageShare
  
 def generate_launch_description():
   gps_wpf_dir = get_package_share_directory(
-        "nav2_gps_waypoint_follower_demo")
+        "amiga_nav2")
   #Constants for paths to different files and folders
   gazebo_models_path = 'models'
-  package_name = 'nav2_gps_waypoint_follower_demo'
+  package_name = 'amiga_nav2'
   robot_name_in_model = 'amiga'
   urdf_file_path = 'urdf/amiga.urdf'
   world_file_path = os.path.join(gps_wpf_dir, "worlds", "sonoma_raceway.world")
@@ -186,7 +186,7 @@ def generate_launch_description():
 # def generate_launch_description():
 #     # Get the launch directory
 #     gps_wpf_dir = get_package_share_directory(
-#         "nav2_gps_waypoint_follower_demo")
+#         "amiga_nav2")
 #     launch_dir = os.path.join(gps_wpf_dir, 'launch')
 #     world = os.path.join(gps_wpf_dir, "worlds", "sonoma_raceway.world")
 

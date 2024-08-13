@@ -11,7 +11,7 @@ def generate_launch_description():
 
     urdf_file_name = 'urdf/amiga.urdf'
     urdf = os.path.join(
-        get_package_share_directory('nav2_gps_waypoint_follower_demo'),
+        get_package_share_directory('amiga_nav2'),
         urdf_file_name)
     with open(urdf, 'r') as infp:
         robot_desc = infp.read()
@@ -30,7 +30,7 @@ def generate_launch_description():
             arguments=[urdf])
     ])
     #     Node(
-    #         package='nav2_gps_waypoint_follower_demo',
+    #         package='amiga_nav2',
     #         executable='state_publisher',
     #         name='state_publisher',
     #         output='screen'),

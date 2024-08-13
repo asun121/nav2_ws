@@ -31,7 +31,7 @@ def generate_launch_description():
     # Get the launch directory
     bringup_dir = get_package_share_directory('nav2_bringup')
     gps_wpf_dir = get_package_share_directory(
-        "nav2_gps_waypoint_follower_demo")
+        "amiga_nav2")
     launch_dir = os.path.join(gps_wpf_dir, 'launch')
     params_dir = os.path.join(gps_wpf_dir, "config")
     nav2_params = os.path.join(params_dir, "nav2_no_map_params.yaml")
@@ -91,19 +91,19 @@ def generate_launch_description():
     )
 
     gps_cmd = Node(
-        package='nav2_gps_waypoint_follower_demo',
+        package='amiga_nav2',
         executable='gps',
         name='gps'
     )
 
     odom_cmd = Node(
-        package='nav2_gps_waypoint_follower_demo',
+        package='amiga_nav2',
         executable='amiga_odometry',
         name='amiga_odometry'
     )
 
     # canbus_cmd = Node(
-    #     package='nav2_gps_waypoint_follower_demo',
+    #     package='amiga_nav2',
     #     executable='canbus_handler',
     #     name='canbus_handler'
     # )

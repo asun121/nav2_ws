@@ -18,7 +18,7 @@
         <geometry>
           <mesh>
             <scale>0.001 0.001 0.001</scale>
-            <uri>model://nav2_gps_waypoint_follower_demo/meshes/amiga_body.stl</uri>
+            <uri>model://amiga_nav2/meshes/amiga_body.stl</uri>
           </mesh>
         </geometry>
       </visual>
@@ -27,7 +27,7 @@
         <geometry>
           <mesh>
             <scale>0.001 0.001 0.001</scale>
-            <uri>model://nav2_gps_waypoint_follower_demo/meshes/amiga_wheel.stl</uri>
+            <uri>model://amiga_nav2/meshes/amiga_wheel.stl</uri>
           </mesh>
         </geometry>
       </visual>
@@ -36,7 +36,7 @@
         <geometry>
           <mesh>
             <scale>0.001 0.001 0.001</scale>
-            <uri>model://nav2_gps_waypoint_follower_demo/meshes/amiga_wheel.stl</uri>
+            <uri>model://amiga_nav2/meshes/amiga_wheel.stl</uri>
           </mesh>
         </geometry>
       </visual>
@@ -45,7 +45,7 @@
         <geometry>
           <mesh>
             <scale>0.001 0.001 0.001</scale>
-            <uri>model://nav2_gps_waypoint_follower_demo/meshes/amiga_wheel.stl</uri>
+            <uri>model://amiga_nav2/meshes/amiga_wheel.stl</uri>
           </mesh>
         </geometry>
       </visual>
@@ -54,7 +54,7 @@
         <geometry>
           <mesh>
             <scale>0.001 0.001 0.001</scale>
-            <uri>model://nav2_gps_waypoint_follower_demo/meshes/amiga_wheel.stl</uri>
+            <uri>model://amiga_nav2/meshes/amiga_wheel.stl</uri>
           </mesh>
         </geometry>
       </visual>

@@ -29,7 +29,7 @@ if(NOT yaml-cpp_POPULATED)
   add_subdirectory(${yaml-cpp_SOURCE_DIR} ${yaml-cpp_BINARY_DIR})
 endif()
 
-#target_link_libraries(nav2_gps_waypoint_follower_demo PUBLIC yaml-cpp::yaml-cpp) # The library or executable that require yaml-cpp library
+#target_link_libraries(robot_localization PUBLIC yaml-cpp::yaml-cpp) # The library or executable that require yaml-cpp library
 
 find_package(ament_cmake REQUIRED)
 find_package(angles REQUIRED)
