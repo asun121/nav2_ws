@@ -1,4 +1,4 @@
-# nav2_ws
+# amiga_nav2
 
 ## Requirements
 
@@ -9,3 +9,6 @@ In addition to the ROS2 requirements, this codebase requires a number of python 
 
 ## Launching RVIZ navigation
 To launch basic rviz navigation, launch the following: `ros2 launch amiga_nav2 gps_waypoint_follower.launch.py use_rviz:=True`
+
+## GPS Waypoint Navigation
+For GPS waypoint navigation, first run the waypoint follower launch file `ros2 launch amiga_nav2 gps_waypoint_follower.launch.py`. From there, you can launch basic waypoint navigation by running the waypoint follower node `ros2 run amiga_nav2 logged_waypoint_follower <PATH-TO-YOUR-WAYPOINTS.yaml>`. You can find the format for the waypoint yaml file under `src/amiga_nav2/config/demo_waypoints.yaml`
