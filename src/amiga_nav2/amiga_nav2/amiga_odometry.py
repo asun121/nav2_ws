@@ -16,7 +16,7 @@ class OdometryPublisher(Node):
         self.ser = serial.Serial('/dev/serial/by-id/usb-Adafruit_Industries_LLC_Feather_M4_CAN_F6FF0DE648364C53202020542C1B0DFF-if00')
         self.subscription = self.create_subscription(
             Twist,
-            'cmd_vel_nav',
+            'cmd_vel_out',
             self.listener_callback,
             10)
         self.subscription  # prevent unused variable warning
@@ -55,7 +55,7 @@ class OdometryPublisher(Node):
                 msg.pose.pose.orientation.z = 0.0
 
                 self.publisher_.publish(msg)
-                self.get_logger().info(f'Published Odom: {msg}')
+                self.get_logger().info(f'Published Odom: {twi}')
         except Exception as e:
 
             self.get_logger().info('Bad Line: ' + str(e))

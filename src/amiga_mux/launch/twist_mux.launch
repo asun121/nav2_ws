@@ -1,6 +1,6 @@
 <launch>
 
-  <arg name="cmd_vel_out" default="twist_mux/cmd_vel"/>
+  <arg name="cmd_vel_out" default="cmd_vel_out"/>
   <arg name="config_topics" default="$(find-pkg-share amiga_mux)/config/twist_mux_topics.yaml"/>
 
   <node pkg="twist_mux" exec="twist_mux" name="twist_mux" output="screen">

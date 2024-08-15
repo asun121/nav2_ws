@@ -110,6 +110,12 @@ def generate_launch_description():
         name='amiga_odometry'
     )
 
+
+    blocker_cmd = Node(
+        package='amiga_nav2',
+        executable='blocker',
+        name='blocker'
+    )
     # canbus_cmd = Node(
     #     package='amiga_nav2',
     #     executable='canbus_handler',
@@ -141,6 +147,6 @@ def generate_launch_description():
     
     #Swarm comms
     ld.add_action(odin_gps)
-
+    ld.add_action(blocker_cmd)
    # ld.add_action(canbus_cmd)
     return ld

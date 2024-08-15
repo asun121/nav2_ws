@@ -40,6 +40,8 @@ def read_gps_data(serial_port):
                 return [latitude, longitude, heading]
             except pynmea2.ParseError as e:
                 print(f"Parse error: {e}")
+            except:
+                print(f'GPS: Bad line')
 
 class GPS(Node):
 

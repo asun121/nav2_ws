@@ -33,7 +33,8 @@ setup(
             'gps_waypoint_logger = amiga_nav2.gps_waypoint_logger:main',
             'amiga_odometry = amiga_nav2.amiga_odometry:main',
             'gps = amiga_nav2.nmea_gps:main',
-            'canbus_handler = amiga_nav2.canbushandler:main'
+            'canbus_handler = amiga_nav2.canbushandler:main',
+            'blocker = amiga_nav2.blocker_nav:main'
         ],
     },
 )
