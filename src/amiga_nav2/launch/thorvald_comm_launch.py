@@ -138,5 +138,9 @@ def generate_launch_description():
     ld.add_action(gps_cmd)
     ld.add_action(odom_cmd)
     ld.add_action(mux_cmd)
+    
+    #Swarm comms
+    ld.add_action(odin_gps)
+
    # ld.add_action(canbus_cmd)
     return ld
