@@ -16,5 +16,8 @@ To launch basic rviz navigation, launch the following: `ros2 launch amiga_nav2 g
 ## GPS Waypoint Navigation
 For GPS waypoint navigation, first run the waypoint follower launch file `ros2 launch amiga_nav2 gps_waypoint_follower.launch.py`. From there, you can launch basic waypoint navigation by running the waypoint follower node `ros2 run amiga_nav2 logged_waypoint_follower <PATH-TO-YOUR-WAYPOINTS.yaml>`. You can find the format for the waypoint yaml file under `src/amiga_nav2/config/demo_waypoints.yaml`
 
+## Logging Waypoints
+To log waypoints, launch the ros2 launch `ros2 launch amiga_nav2 gps_waypoint_follower.launch.py`, and then run the waypoint logger node (gps_waypoint_logger.py). From here, you can press the log waypoints button and the robot will record its current position
+
 ## Thorvald communication
 To connect to the Thorvald GPS, connect to the Thorvald Wifi. From here, you can access the trimble GPS. To communicate with the Thorvald, launch from `ros2 launch amiga_nav2 thorvald_comm.launch.py`. This should launch the blocker which will cause the Amiga to stop whenever within 7 meter radius of the Thorvald avoiding collision.
