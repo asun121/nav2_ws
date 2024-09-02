@@ -1,0 +1,8 @@
+/**:
+  ros__parameters:
+    locks:
+      navigation:
+        topic   : navigation_pause
+        timeout : 0.0
+        priority: 51
+

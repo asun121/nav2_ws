@@ -8,6 +8,7 @@ from rclpy.node import Node
 
 from sensor_msgs.msg import NavSatFix
 from sensor_msgs.msg import Imu
+import numpy as np
 
 GPS_PORT = '/dev/serial/by-id/usb-Emlid_ReachRS3_8243ABB34D7B2976-if02'
 
@@ -61,11 +62,12 @@ class GPS(Node):
         self.longitude = None
         self.heading = 0.0
 
-        timer_period = 0.5  # seconds
+        timer_period = 0.01  # seconds
         self.timer = self.create_timer(timer_period, self.timer_callback)
 
     def get_gps(self):
         line = self.gps_port.readline().decode('utf-8').strip()
+        self.get_logger().info(line)
         if line.startswith('$GPGGA'):
             try:
                 msg = pynmea2.parse(line)
@@ -88,10 +90,10 @@ class GPS(Node):
         gps_msg = NavSatFix()
         imu_msg = Imu()
 
-        gps_msg.header.frame_id = 'gps'
+        gps_msg.header.frame_id = 'base_link'
         gps_msg.header.stamp = self.get_clock().now().to_msg()
 
-        imu_msg.header.frame_id = 'imu'
+        imu_msg.header.frame_id = 'base_link'
         imu_msg.header.stamp = self.get_clock().now().to_msg()
    
 
@@ -101,8 +103,10 @@ class GPS(Node):
        # latitude,longitude,heading = gp[0], gp[1], gp[2]
         gps_msg.latitude = gp[0]
         gps_msg.longitude = gp[1]
+        robot_yaw = gp[2]
+        robot_yaw = np.deg2rad(robot_yaw)
+        imu_msg.orientation = gps_utils.quaternion_from_euler(0, 0 ,robot_yaw)
 
-        imu_msg.orientation = gps_utils.quaternion_from_euler(gp[2], 0 ,0)
         
         self.publisher_gps.publish(gps_msg)
         self.publisher_imu.publish(imu_msg)

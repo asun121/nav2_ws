@@ -13,7 +13,7 @@ class OdometryPublisher(Node):
         timer_period = 0.1  # seconds
         self.timer = self.create_timer(timer_period, self.timer_callback)
         self.i = 0
-        self.ser = serial.Serial('/dev/serial/by-id/usb-Adafruit_Industries_LLC_Feather_M4_CAN_F6FF0DE648364C53202020542C1B0DFF-if00')
+        self.ser = serial.Serial('/dev/serial/by-id/usb-Adafruit_Industries_LLC_Feather_M4_CAN_5B3BC54948364C53202020543D460DFF-if00')
         self.subscription = self.create_subscription(
             Twist,
             'cmd_vel_out',

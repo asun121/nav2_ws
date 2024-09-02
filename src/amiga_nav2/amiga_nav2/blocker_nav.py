@@ -8,6 +8,7 @@ from rclpy.node import Node
 from sensor_msgs.msg import NavSatFix
 from geopy.distance import geodesic as GD
 
+
 class BlockerNav(Node):
     def __init__(self):
         super().__init__('blocker_nav')
@@ -19,7 +20,8 @@ class BlockerNav(Node):
         self.amiga_sub = self.create_subscription(NavSatFix, '/gps/fix', self.amiga_callback, 1)
 
         #PUBLISHERS
-        self.twist_pub = self.create_publisher(Twist, 'cmd_vel_blocker', 1)
+        self.twist_pub = self.create_publisher(Bool, '/navigation_pause', 1)
+
 
         self.amiga_location = 0.0
         self.thorvald_location = 0.0
@@ -61,19 +63,13 @@ class BlockerNav(Node):
             distance = GD((self.amiga_lat, self.amiga_long), (self.thorvald_lat, self.thorvald_long)).meters
             self.get_logger().info(f"{distance}")
             if distance < 5:
-                twist_msg = Twist()
-
-                twist_msg.linear.x = 0.0
-                twist_msg.linear.y = 0.0
-                twist_msg.linear.z = 0.0
-            
-                twist_msg.angular.x = 0.0
-                twist_msg.angular.y = 0.0
-                twist_msg.angular.z = 0.0
-
-                self.twist_pub.publish(twist_msg)
-                self.next = False
-                self.next2 = False
+                msg = Bool()
+                msg.data = True
+                self.twist_pub.publish(msg)
+            else:
+                msg = Bool()
+                msg.data = False
+                self.twist_pub.publish(msg)
 
 
 
